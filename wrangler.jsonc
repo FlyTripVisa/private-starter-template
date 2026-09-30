@@ -51,3 +51,31 @@
 	],
 	"upload_source_maps": true
 }
+
+{
+  // ...
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "CloudflareAgent",
+        "type": "durable_object_namespace",
+        "class_name": "ChatAgent",
+        "script_name": "agent-starter",
+        "namespace_id": "ac0b2a76bd8c4795ac0331156c41a44a"
+      },
+      {
+        "name": "WORKFLOW_STATUS",
+        "type": "durable_object_namespace",
+        "class_name": "WorkflowStatusDO",
+        "namespace_id": "581fc1f2e46448cf8598a9eeebc28b5f"
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "binding": "CloudflareAgent",
+      "name": "my-workflow",
+      "class_name": "MyWorkflow"
+    }
+  ],
+  }
