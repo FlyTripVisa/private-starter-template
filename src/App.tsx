@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import { WorkflowDiagram } from "./components/WorkflowDiagram";
-import { CodeDisplay } from "./components/CodeDisplay";
-import { BackgroundDots } from "./components/BackgroundDots";
-import { useWorkflowWebSocket } from "./hooks/useWorkflowWebSocket";
-import { WORKFLOW_STEPS } from "./types";
+import { useEffect } from 'react';
+import { useRealtimeKitClient } from '@cloudflare/realtimekit-react';
 
+export default function App() {
+  const [meeting, initMeeting] = useRealtimeKitClient();
+  useEffect(() => {
+    initMeeting({ authToken: '<auth-token>' });
+  }, []);
 function App() {
 	const [instanceId, setInstanceId] = useState<string | null>(null);
 	const [isStarting, setIsStarting] = useState(false);
